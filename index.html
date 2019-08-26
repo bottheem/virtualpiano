@@ -1,200 +1,121 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>UI</title>
-</head>
-<body bgcolor="black">
+    <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
+    </head>
+    <body>
+        
+    <ul class = "set">
+         <li class="white b" onclick="window.alert('lavdya, kaay vaajavtoy ......bahut baaki he abhi')"></li>
+         <li class="black as"></li>
+         <li class="white a"></li>
+         <li class="black gs"></li>
+         <li class="white g"></li>
+         <li class="black fs"></li>
+         <li class="white f"></li>
+         <li class="white e"></li>
+         <li class="black ds"></li>
+         <li class="white d"></li>
+         <li class="black cs"></li>
+         <li class="white c"></li>
+         <li class="white hs"></li>
+         <li class="black h"></li>
+         <li class="white is"></li>
+         <li class="black i"></li>
+         <li class="white js"></li>
+         <li class="black j"></li>
+         <li class="white ks"></li>
+         <li class="white k"></li>
+          <li class="black ls"></li>
+         <li class="white l"></li>
+         <li class="black ms"></li>
+         <li class="white m"></li>
+         <li class="white ns"></li>
+         <li class="black n"></li>
+         <li class="white os"></li>
+         <li class="black o"></li>
+         <li class="white ps"></li>
+         <li class="black p"></li>      
+         <li class="white qs"></li>
+         <li class="white q"></li>
+          <li class="black rs"></li>
+         <li class="white r"></li>
+         <li class="black ss"></li>
+         <li class="white s"></li>
+         <li class="white ts"></li>
+         <li class="black t"></li>
+         <li class="white us"></li>
+         <li class="black u"></li>
+         <li class="white vs"></li>
+         <li class="black v"></li>
+        <li class="white ws"></li>
+        <li class="white w"></li>
+        <li class="black xs"></li>
+        <li class="white x"></li>
+        <li class="black ys"></li>
+        <li class="white y"></li> 
+        <li class="white zs"></li>
+        </ul>
+        
+        <style>
+            *{
+                box-sizing: border-box;
+                
+            }
+            body{
+                background-color: darkgray;
+                margin-left: -39;
+            }
+          /*  ul{
+                height:18.875em;
+                width:34em;
+                margin:5em auto;
+                padding:3em 0 0 3em;
+                position:relative;
+                border:1px solid #160801;
+                border-radius:1em;
+            }*/
+            li{
+                margin:0;
+                padding:0;
+                
+                list-style:none;
+                position: relative;
+                float: left;
+            }
+            ul .white{
+                height:16em;
+                width:4em;
+                z-index:1;
+                border-left:1px solid #bbb;
+                border-bottom:1px solid #bbb;
+                border-radius:0 0 5px 5px;
+                background-color: white;               
+            }
+            ul .white:active {
+                border-top:1px solid #777;
+                border-left:1px solid #999;
+                border-bottom:1px solid #999;
+                box-shadow: 2px 0 8px rgba(0,0,0,0.1) inset, -5px 5px 30px rgba(0,0,0,0.2) inset,0 0 13px rgba(0,0,0,0.2);
+            }
+            .black{
+                height:8em;
+                width:2em;
+                margin:0 0 0 -1em;
+                z-index:2;
+                border:1px solid #000;
+                border-radius:0 0 3px 3px;
+                box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
+                background-color: black;
+            }
+            .black:active{
+                 box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -2px 2px 3px rgba(0,0,0,0.6) inset,0 1px 2px rgba(0,0,0,0.5);
+            }
+            
+            .a,.g,.f,.d,.c,.is,.js,.ks,.l,.m,.os,.ps,.qs,.r,.s,.us,.vs,.ws,.x,.y{
+  margin:0 0 0 -1em;
+}
 
-<style type="text/css">
-	.bb1{
-		width: 80px;
-		height: 240px;
-		margin-top: 80px;
-	}
-	.bb2{
-		width: 80px;
-		height: 240px;		
-	}
-	.bb3{
-		width: 80px;
-		height: 240px;		
-	}
-	.bb4{
-		width: 80px;
-		height: 240px;		
-	}
-	.bb5{
-		width: 80px;
-		height: 240px;		
-	}
-	.bb6{
-		width: 80px;
-		height: 240px;		
-	}
-	.bb7{
-		width: 80px;
-		height: 240px;		
-	}
-	.bb8{
-		width: 80px;
-		height: 240px;		
-	}
-	.b1{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-	}
-	.b2{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-		
-	}
-	.b3{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-	}
-	.b4{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-		
-	}
-	.b5{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-	}
-	.b6{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-		
-	}
-	.b7{
-		outline: none;
-		width: 50px;
-		height: 140px;
-		position: absolute;
-		margin-left: -26px;
-		margin-top: 80px;
-		background-color: black;
-		border-bottom-right-radius:20px;
-		border-bottom-left-radius:20px;
-		}
-	.bb1:hover{
-		box-shadow: 0px 20px 80px 10px red;	
-		border-bottom-color: red;
-		border-bottom-width: 5px;
-	}
-	.bb2:hover{
-		box-shadow: 0px 20px 80px 10px cyan;	
-		border-bottom-color: cyan;
-		border-bottom-width: 5px;
-	}
-	.bb3:hover{
-		box-shadow: 0px 20px 80px 10px green;	
-		border-bottom-color: green;		
-		border-bottom-width: 5px;
-	}
-	.bb4:hover{
-		box-shadow: 0px 20px 80px 10px blue;	
-		border-bottom-color: blue;	
-		border-bottom-width: 5px;
-	}
-	.bb5:hover{
-		box-shadow: 0px 20px 80px 10px orange;		
-		border-bottom-color: orange;	
-		border-bottom-width: 5px;
-	}
-	.bb6:hover{
-		box-shadow: 0px 20px 80px 10px magenta;			
-		border-bottom-color: magenta;
-		border-bottom-width: 5px;
-	}
-	.bb7:hover{
-		box-shadow: 0px 20px 80px 10px white;	
-		border-bottom-color: white;		
-		border-bottom-width: 5px;
-	}
-	.bb8:hover{
-		box-shadow: 0px 20px 80px 10px yellow;	
-		border-bottom-color: yellow;
-		border-bottom-width: 5px;	
-	}
-	.b1:hover{
-		border-color: cyan;
-	}
-	.b2:hover{
-		border-color: cyan;
-	}
-	.b3:hover{
-		border-color: cyan;
-	}
-	.b4:hover{
-		border-color: cyan;
-	}
-	.b5:hover{ 
-		border-color: cyan;
-	}
-	.b6:hover{
-		border-color: cyan;
-	}
-	.b7:hover{
-		border-color: cyan;
-	}
-</style>
-	<button class="bb1"></button>
-	<button class="b1"></button>
-	<button class="bb2"></button>
-	<button class="b2"></button>
-	<button class="bb3"></button>
-	<button class="b3"></button>
-	<button class="bb4"></button>
-	<button class="b4"></button>
-	<button class="bb5"></button>
-	<button class="b5"></button>
-	<button class="bb6"></button>
-	<button class="b6"></button>
-	<button class="bb7"></button>
-	<button class="b7"></button>
-	<button class="bb8"></button>
-</body>
-</html>h
+
+        </style>
+    </body>
+</html>
