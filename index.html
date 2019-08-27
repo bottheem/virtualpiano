@@ -61,7 +61,7 @@
     </head>
     <body>
 <div class="main">
-    New
+    Rotate test
  <ul class = "set">
          <li class="white b" onclick="window.alert('lavdya, kaay vaajavtoy ......bahut baaki he abhi')"></li>
          <li class="black as"></li>
@@ -94,9 +94,15 @@
          <li class="white ps"></li>
          <li class="black p"></li>      
          <li class="white qs"></li>
+     
+
         </ul>
 
 </div>
      
-
+<script>
+    window.addEventListener('orientationchange', function(e){
+    var isUpright = (window.orientation == 'portrait');
+});
+</script>
 </html>
