@@ -3,113 +3,130 @@
     <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
 
        <style>
-    @media screen 
-and (min-device-width: 319px) 
-and (max-device-width: 720px) {
-   .main{
-     transform: rotate(90deg);
-   }
-}
-body{
-    background-color: #F8F8F8;
-}
+            @media screen and (min-device-width: 319px) and (max-device-width: 720px) {
             .main{
-               
+                transform: rotate(90deg);
+                }
+            }
+            body{
+                background-color: transparent;
+            }
+            .container{
                 background-color: transparent;
                 position: relative;
-                height: 200px;
-                width: 1300px;  
+                height: 260px;
+                width: 1400px;  
             }
-            .child{
-                background-color: green;
-                position: relative;
-                display: inline-block;
-                height: 190px;
-                width: 100px;  
-            }
-                      li{
+            li{
                 margin:0;
-                padding:0;
-                
+                padding-top:40px;
                 list-style:none;
                 position: relative;
                 float: left;
+                text-align: center;
+               
             }
-            ul .white{
+
+            .white{
                 height:16em;
                 width:4em;
-                z-index:1;
                 border-left:1px solid #bbb;
                 border-bottom:1px solid #bbb;
                 border-radius:0 0 5px 5px;
-                background-color: white;               
+                background-color: white;   
+                 box-shadow: 14px 0px 18px 2px grey;            
             }
-            ul .white:active {
-                border-top:1px solid #777;
-                border-left:1px solid #999;
-                border-bottom:1px solid #999;
-                box-shadow: inset 0px 10px 22px -10px #000000;
-                background-color: #F8F8F8;
+            .white:active, #three{
+                  border-top:1px solid #777;
+                  border-left:1px solid #999;
+                  border-bottom:1px solid #999;
+                  box-shadow:2px 0 3px rgba(0,0,0,0.1) inset,
+                            -5px 5px 20px rgba(0,0,0,0.2) inset,
+                             0 0 3px rgba(0,0,0,0.2),
+                             inset 4px 4px 2px -10px #000000;
 
+                  background:
+                  linear-gradient(to bottom,white 75%,#E3E3E3 100%);
+                  z-index:-4;
             }
             .black{
                 height:8em;
                 width:2em;
-                margin:0 0 0 -1em;
+                margin:0 0 0 0;
                 z-index:2;
                 border:1px solid #000;
                 border-radius:0 0 3px 3px;
                 box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
                 background-color: black;
+                  color: white; 
             }
-            .black:active{
-                 box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -2px 2px 3px rgba(0,0,0,0.6) inset,0 1px 2px rgba(0,0,0,0.5);
-            }
+
             
-            .a,.g,.f,.d,.c,.is,.js,.ks,.l,.m,.os,.ps,.qs,.r,.s,.us,.vs,.ws,.x,.y{
-  margin:0 0 0 -1em;
-}
+            .d,.e,.g,.a,.b{
+                 margin:0 0 0 -1.11em;
+            }
+            .cs,.ds,.fs,.gs,.as{
+                 margin:0 0 0 -1em;
+            }
+
+
         </style>
+
+
     </head>
     <body>
-<div class="main">
-    Rotate test 3
- <ul class = "set">
-         <li class="white b" onclick="window.alert('lavdya, kaay vaajavtoy ......bahut baaki he abhi')"></li>
-        
-         <li class="black ds"></li>
-         <li class="white d"></li>
-         <li class="black cs"></li>
-         <li class="white c"></li>
-         <li class="white hs"></li>
-         <li class="black h"></li>
-         <li class="white is"></li>
-         <li class="black i"></li>
-         <li class="white js"></li>
-         <li class="black j"></li>
-         <li class="white ks"></li>
-         <li class="white k"></li>
-         <li class="black ls"></li>
-         <li class="white l"></li>
-         <li class="black ms"></li>
-         <li class="white m"></li>
-         <li class="white ns"></li>
-         <li class="black n"></li>
-         <li class="white os"></li>
-         <li class="black o"></li>
-         <li class="white ps"></li>
-         <li class="black p"></li>      
-         <li class="white qs"></li>
-         <li class="white qs"></li>
 
-
-        </ul>
+<div class="container" id="main">
+    <ul class = "keyList" id="zero">
+         <li class="keys white c" id="one">   c    </li>
+         <li class="keys black cs" id="two">  c#   </li>
+         <li class="keys white d" id="three">   D    </li>
+         <li class="keys black ds" id="four">  D#   </li>
+         <li class="keys white e">   E    </li>
+         <li class="keys white f">   F    </li>
+         <li class="keys black fs">  F#   </li>
+         <li class="keys white g">   G    </li>
+         <li class="keys black gs">  G#   </li>
+         <li class="keys white a">   A    </li>
+         <li class="keys black as">  A#   </li>
+         <li class="keys white b">   B    </li>
+         <li class="keys white c">   C    </li>
+         <li class="keys black cs">  C#   </li>
+         <li class="keys white d">   D    </li>
+         <li class="keys black ds">  D#   </li>
+         <li class="keys white e">   E    </li>
+         <li class="keys white f">   F    </li>
+         <li class="keys black fs">   F#   </li>
+         <li class="keys white g">   G    </li>
+         <li class="keys black gs">   G#   </li>
+         <li class="keys white a">   A    </li>
+         <li class="keys black as">   A#   </li>      
+         <li class="keys white b">  B    </li>
+         <li class="keys white c">  C    </li>
+    </ul>
 
 </div>
-     
-<script>
-    window.addEventListener('orientationchange', function(e){
-    var isUpright = (window.orientation == 'portrait');
-});
-</script>
+
+
+
+
+
+</body>     
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
