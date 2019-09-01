@@ -72,38 +72,90 @@
 
 
         </style>
-
+<script>
+var url = ['a5.mp3','b5.mp3','c5.mp3','d5.mp3','e5.mp3','f5.mp3','g5.mp3'];
+var urls = ['c5s.mp3','d5s.mp3','f5s.mp3','g5s.mp3','a5s.mp3']
+  function play_a() {
+    var audio = new Audio(url[0]);
+    audio.play(); 
+  }
+  function play_b() {
+    var audio = new Audio(url[1]);
+    audio.play(); 
+  }
+  function play_c() {
+    var audio = new Audio(url[2]);
+    audio.play(); 
+  }
+  function play_d() {
+    var audio = new Audio(url[3]);
+    audio.play(); 
+  }
+  function play_e() {
+    var audio = new Audio(url[4]);
+    audio.play(); 
+  }
+  function play_f() {
+    var audio = new Audio(url[5]);
+    audio.play(); 
+  }
+  function play_g() {
+    var audio = new Audio(url[6]);
+    audio.play(); 
+  }
+//
+  function play_cs() {
+    var audio = new Audio(urls[0]);
+    audio.play(); 
+  }
+  function play_ds() {
+    var audio = new Audio(urls[1]);
+    audio.play(); 
+  }
+  function play_fs() {
+    var audio = new Audio(urls[2]);
+    audio.play(); 
+  }
+  function play_gs() {
+    var audio = new Audio(urls[3]);
+    audio.play(); 
+  }
+  function play_as() {
+    var audio = new Audio(urls[4]);
+    audio.play(); 
+  }
+</script>
 
     </head>
     <body>
 
 <div class="container" id="main">
     <ul class = "keyList" id="zero">
-         <li class="keys white c" >   c    </li>
-         <li class="keys black cs" >  c#   </li>
-         <li class="keys white d" >   D    </li>
-         <li class="keys black ds" >  D#   </li>
-         <li class="keys white e">   E    </li>
-         <li class="keys white f">   F    </li>
-         <li class="keys black fs">  F#   </li>
-         <li class="keys white g">   G    </li>
-         <li class="keys black gs">  G#   </li>
-         <li class="keys white a">   A    </li>
-         <li class="keys black as">  A#   </li>
-         <li class="keys white b">   B    </li>
-         <li class="keys white c">   C    </li>
-         <li class="keys black cs">  C#   </li>
-         <li class="keys white d">   D    </li>
-         <li class="keys black ds">  D#   </li>
-         <li class="keys white e">   E    </li>
-         <li class="keys white f">   F    </li>
-         <li class="keys black fs">   F#   </li>
-         <li class="keys white g">   G    </li>
-         <li class="keys black gs">   G#   </li>
-         <li class="keys white a">   A    </li>
-         <li class="keys black as">   A#   </li>      
-         <li class="keys white b">  B    </li>
-         <li class="keys white c">  C    </li>
+         <li class="keys white c"   onmousedown="play_c()" >   c    </li>
+         <li class="keys black cs"  onmousedown="play_cs()" >  c#   </li>
+         <li class="keys white d"   onmousedown="play_d()" >   D    </li>
+         <li class="keys black ds"  onmousedown="play_ds()" >  D#   </li>
+         <li class="keys white e"   onmousedown="play_e()" >   E    </li>
+         <li class="keys white f"   onmousedown="play_f()" >   F    </li>
+         <li class="keys black fs"  onmousedown="play_fs()" >  F#   </li>
+         <li class="keys white g"   onmousedown="play_g()" >   G    </li>
+         <li class="keys black gs"  onmousedown="play_gs()" >  G#   </li>
+         <li class="keys white a"   onmousedown="play_a()" >   A    </li>
+         <li class="keys black as"  onmousedown="play_as()" >  A#   </li>
+         <li class="keys white b"   onmousedown="play_b()" >   B    </li>
+         <li class="keys white c"   onmousedown="play_c()" >   C    </li>
+         <li class="keys black cs"  onmousedown="play()" >  C#   </li>
+         <li class="keys white d"   onmousedown="play_d()" >   D    </li>
+         <li class="keys black ds"  onmousedown="play()" >  D#   </li>
+         <li class="keys white e"   onmousedown="play_e()" >   E    </li>
+         <li class="keys white f"   onmousedown="play_f()" >   F    </li>
+         <li class="keys black fs"  onmousedown="play()" >   F#   </li>
+         <li class="keys white g"   onmousedown="play()" >   G    </li>
+         <li class="keys black gs"  onmousedown="play()" >   G#   </li>
+         <li class="keys white a"   onmousedown="play()" >   A    </li>
+         <li class="keys black as"  onmousedown="play()" >   A#   </li>      
+         <li class="keys white b"   onmousedown="play()" >  B    </li>
+         <li class="keys white c"   onmousedown="play()" >  C    </li>
     </ul>
 
 </div>
