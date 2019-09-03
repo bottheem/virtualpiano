@@ -1,185 +1,156 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.3.4/Tone.js" ></script>
+    </style>
+<script type="text/javascript">
+const synth = new Tone.Synth();
+synth.oscillator.type = "sine";
+synth.toMaster();
 
-       <style>
-            @media screen and (min-device-width: 319px) and (max-device-width: 720px) {
-            .main{
-                transform: rotate(90deg);
-                }
-            }
-            body{
-                background-color: transparent;
-            }
-            .container{
-                background-color: transparent;
-                position: relative;
-                height: 260px;
-                width: 1400px;  
-            }
-            li{
-                margin:0;
-                padding-top:40px;
-                list-style:none;
-                position: relative;
-                float: left;
-                text-align: center;
-                user-select: none;
-               
-            }
+const piano = document.getElementById("piano");
 
-            .white{
-                height:16em;
-                width:4em;
-                border-left:1px solid #bbb;
-                border-bottom:1px solid #bbb;
-                border-radius:0 0 5px 5px;
-                background-color: white;   
-                 box-shadow: 14px 0px 18px 2px grey;            
-            }
-            .white:active{
-                  border-top:1px solid #777;
-                  border-left:1px solid #999;
-                  border-bottom:1px solid #999;
-                  box-shadow:2px 0 3px rgba(0,0,0,0.1) inset,
-                            -5px 5px 20px rgba(0,0,0,0.2) inset,
-                             0 0 3px rgba(0,0,0,0.2),
-                             inset 4px 4px 2px -10px #000000;
+piano.addEventListener("mousedown", e => {
+  synth.triggerAttack(e.target.dataset.note);
+});
 
-                  background:
-                  linear-gradient(to bottom,white 75%,#E3E3E3 100%);
-                  z-index:-4;
-            }
-            .black{
-                height:8em;
-                width:2em;
-                margin:0 0 0 0;
-                z-index:2;
-                border:1px solid #000;
-                border-radius:0 0 3px 3px;
-                box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
-                background-color: black;
-                  color: white; 
-            }
+piano.addEventListener("mouseup", e => {
+  synth.triggerRelease();
+});
 
-            
-            .d,.e,.g,.a,.b{
-                 margin:0 0 0 -1.11em;
-            }
-            .cs,.ds,.fs,.gs,.as{
-                 margin:0 0 0 -1em;
-            }
+document.addEventListener("keydown", e => {
+  switch (e.key) {
+    case "d":
+      return synth.triggerAttack("C4");
+    case "r":
+      return synth.triggerAttack("C#4");
+    case "f":
+      return synth.triggerAttack("D4");
+    case "t":
+      return synth.triggerAttack("D#4");
+    case "g":
+      return synth.triggerAttack("E4");
+    case "h":
+      return synth.triggerAttack("F4");
+    case "u":
+      return synth.triggerAttack("F#4");
+    case "j":
+      return synth.triggerAttack("G4");
+    case "i":
+      return synth.triggerAttack("G#4");
+    case "k":
+      return synth.triggerAttack("A4");
+    case "o":
+      return synth.triggerAttack("A#4");
+    case "l":
+      return synth.triggerAttack("B4");
+    default:
+      return;
+  }
+});
 
-
-        </style>
-<script>
-var url = ['a5m.wav','b5.mp3','c5.mp3','d5.mp3','e5.mp3','f5.mp3','g5.mp3'];
-var urls = ['c5s.mp3','d5s.mp3','f5s.mp3','g5s.mp3','a5s.mp3']
-  function play_a() {
-    var audio = new Audio(url[0]);
-    audio.play(); 
+document.addEventListener("keyup", e => {
+  switch (e.key) {
+    case "d":
+    case "r":
+    case "f":
+    case "t":
+    case "g":
+    case "h":
+    case "u":
+    case "j":
+    case "i":
+    case "k":
+    case "o":
+    case "l":
+       synth.triggerRelease(); 
   }
-  function play_b() {
-    var audio = new Audio(url[1]);
-    audio.play(); 
-  }
-  function play_c() {
-    var audio = new Audio(url[2]);
-    audio.play(); 
-  }
-  function play_d() {
-    var audio = new Audio(url[3]);
-    audio.play(); 
-  }
-  function play_e() {
-    var audio = new Audio(url[4]);
-    audio.play(); 
-  }
-  function play_f() {
-    var audio = new Audio(url[5]);
-    audio.play(); 
-  }
-  function play_g() {
-    var audio = new Audio(url[6]);
-    audio.play(); 
-  }
-//
-  function play_cs() {
-    var audio = new Audio(urls[0]);
-    audio.play(); 
-  }
-  function play_ds() {
-    var audio = new Audio(urls[1]);
-    audio.play(); 
-  }
-  function play_fs() {
-    var audio = new Audio(urls[2]);
-    audio.play(); 
-  }
-  function play_gs() {
-    var audio = new Audio(urls[3]);
-    audio.play(); 
-  }
-  function play_as() {
-    var audio = new Audio(urls[4]);
-    audio.play(); 
-  }
+});
 </script>
 
-    </head>
-    <body>
+<style type="text/css">
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+ body {
+     font-family: 'Roboto', sans-serif;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+}
+ ul {
+     list-style: none;
+     display: flex;
+}
+ ul .key {
+     position: relative;
+     width: 60px;
+     height: 180px;
+     border: 1px solid black;
+     border-right: none;
+     background: #fffff0;
+     border-radius: 5px;
+     box-shadow: 0px 3px 5px #666;
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     align-items: flex-end;
+     padding-bottom: 10px;
+     font-weight: bold;
+}
+ ul .key:last-child {
+     border-right: 1px solid black;
+}
+ ul .black-key {
+     position: absolute;
+     top: -1px;
+     left: 37.5px;
+     width: 45px;
+     height: 120px;
+     background: black;
+     border-radius: 5px;
+     box-shadow: 0px 3px 5px #666;
+     z-index: 999;
+     display: flex;
+     justify-content: center;
+     align-items: flex-end;
+     padding-bottom: 10px;
+     color: white;
+}
+ ul .active {
+     box-shadow: 0px 1px 3px #666;
+}
+ 
+</style>
+</head>
+<body>
+<ul id="piano">
+  <li data-note="C4" class="key">
+    <div data-note="C#4" class="black-key">R</div>
+    D
+  </li>
+  <li data-note="D4" class="key">
+    <div data-note="D#4" class="black-key">T</div>
+    F
+  </li>
+  <li data-note="E4" class="key">
+    G
+  </li>
+  <li data-note="F4" class="key">
+    <div data-note="F#4" class="black-key">U</div>
+    H
+  </li>
+  <li data-note="G4" class="key">
+    <div data-note="G#4" class="black-key">I</div>
+    J
+  </li>
+  <li data-note="A4" class="key">
+    <div data-note="A#4" class="black-key">O</div>
+    K
+  </li>
+  <li data-note="B4" class="key">
+    L
+  </li>
+</ul>
 
-<div class="container" id="main">
-    <ul class = "keyList" id="zero">
-         <li class="keys white c"   onmousedown="play_c()" >   c    </li>
-         <li class="keys black cs"  onmousedown="play_cs()" >  c#   </li>
-         <li class="keys white d"   onmousedown="play_d()" >   D    </li>
-         <li class="keys black ds"  onmousedown="play_ds()" >  D#   </li>
-         <li class="keys white e"   onmousedown="play_e()" >   E    </li>
-         <li class="keys white f"   onmousedown="play_f()" >   F    </li>
-         <li class="keys black fs"  onmousedown="play_fs()" >  F#   </li>
-         <li class="keys white g"   onmousedown="play_g()" >   G    </li>
-         <li class="keys black gs"  onmousedown="play_gs()" >  G#   </li>
-         <li class="keys white a"   onmousedown="play_a()" >   A    </li>
-         <li class="keys black as"  onmousedown="play_as()" >  A#   </li>
-         <li class="keys white b"   onmousedown="play_b()" >   B    </li>
-         <li class="keys white c"   onmousedown="play_c()" >   C    </li>
-         <li class="keys black cs"  onmousedown="play()" >  C#   </li>
-         <li class="keys white d"   onmousedown="play_d()" >   D    </li>
-         <li class="keys black ds"  onmousedown="play()" >  D#   </li>
-         <li class="keys white e"   onmousedown="play_e()" >   E    </li>
-         <li class="keys white f"   onmousedown="play_f()" >   F    </li>
-         <li class="keys black fs"  onmousedown="play()" >   F#   </li>
-         <li class="keys white g"   onmousedown="play()" >   G    </li>
-         <li class="keys black gs"  onmousedown="play()" >   G#   </li>
-         <li class="keys white a"   onmousedown="play()" >   A    </li>
-         <li class="keys black as"  onmousedown="play()" >   A#   </li>      
-         <li class="keys white b"   onmousedown="play()" >  B    </li>
-         <li class="keys white c"   onmousedown="play()" >  C    </li>
-    </ul>
-
-</div>
-
-
-
-
-
-</body>     
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
