@@ -84,7 +84,7 @@
          <li class="keys white g" id="G5"   onmousedown="playTone()" >   G    </li>
          <li class="keys black gs" id="G5"  onmousedown="playTone()" >  G#   </li>
          <li class="keys white a" id="A5"   onmousedown="playTone()" >   A    </li>
-         <li class="keys black as" id="A35"  onmousedown="playTone()" >  A#   </li>
+         <li class="keys black as" id="A#5"  onmousedown="playTone()" >  A#   </li>
          <li class="keys white b" id="B5"  onmousedown="playTone()" >   B    </li>
          <li class="keys white c" id="C6"  onmousedown="playTone()" >   C    </li>
          <li class="keys black cs" id="C#6"  onmousedown="playTone()" >  C#   </li>
@@ -103,7 +103,7 @@
 </div>
 
 <script>
-  var synth = new Tone.Synth().toMaster();
+  var synth = new Tone.FMSynth().toMaster();
 
   document.querySelectorAll("li").addEventListener("click",playTonetone);
   function playTone(){
