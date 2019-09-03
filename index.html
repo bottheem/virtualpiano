@@ -1,7 +1,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
+<script src="Tone.js"></script>
 
+<script type="text/javascript">
+var synth = new Tone.Synth().toMaster();
+synth.triggerAttackRelease('C4', '8n');
+</script>
+    
+</script>
        <style>
             @media screen and (min-device-width: 319px) and (max-device-width: 720px) {
             .main{
@@ -67,59 +74,7 @@
                  margin:0 0 0 -1em;
             }
         </style>
-<script>
-var url = ['a5m.wav','b5.mp3','c5.mp3','d5.mp3','e5.mp3','f5.mp3','g5.mp3'];
-var urls = ['c5s.mp3','d5s.mp3','f5s.mp3','g5s.mp3','a5s.mp3']
-  function play_a() {
-    var audio = new Audio(url[0]);
-    audio.play(); 
-  }
-  function play_b() {
-    var audio = new Audio(url[1]);
-    audio.play(); 
-  }
-  function play_c() {
-    var audio = new Audio(url[2]);
-    audio.play(); 
-  }
-  function play_d() {
-    var audio = new Audio(url[3]);
-    audio.play(); 
-  }
-  function play_e() {
-    var audio = new Audio(url[4]);
-    audio.play(); 
-  }
-  function play_f() {
-    var audio = new Audio(url[5]);
-    audio.play(); 
-  }
-  function play_g() {
-    var audio = new Audio(url[6]);
-    audio.play(); 
-  }
-//
-  function play_cs() {
-    var audio = new Audio(urls[0]);
-    audio.play(); 
-  }
-  function play_ds() {
-    var audio = new Audio(urls[1]);
-    audio.play(); 
-  }
-  function play_fs() {
-    var audio = new Audio(urls[2]);
-    audio.play(); 
-  }
-  function play_gs() {
-    var audio = new Audio(urls[3]);
-    audio.play(); 
-  }
-  function play_as() {
-    var audio = new Audio(urls[4]);
-    audio.play(); 
-  }
-</script>
+
 
     </head>
     <body>
