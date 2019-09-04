@@ -1,21 +1,27 @@
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
 
        <style>
-            @media screen and (min-device-width: 319px) and (max-device-width: 720px) {
-            .main{
-                transform: rotate(90deg);
-                }
-            }
+        
+
+            
             body{
                 background-color: transparent;
+                margin: 0;
+                font-family: sans-serif;
+                background-color: #EEEEEE;
             }
             .container{
-                background-color: transparent;
+                background-color: ;
                 position: relative;
+                top: 150px;
+                left: 120px;
                 height: 260px;
                 width: 1400px;  
+           
+
             }
             li{
                 margin:0;
@@ -66,12 +72,51 @@
             .cs,.ds,.fs,.gs,.as{
                  margin:0 0 0 -1em;
             }
+            .shape1{
+              position: absolute;
+              background-image: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
+                height: 600px;
+                width: 1400px;  
+                clip-path: polygon(0% 50%, 100% 0%, 100% 25%, 0% 100%);
+                z-index: -25;
+                opacity: 0.4;
+            }
+            .shape2{
+              position: absolute;
+              background: linear-gradient(57deg, #ff758c, #ff7eb3);
+                height: 600px;
+                width: 1400px;  
+                clip-path: polygon(0% 0%, 35% 0%, 0% 25%, 0% 100%);
+                z-index: -25;
+                opacity: 0.4;
+            }
+            .shape3{
+              position: absolute;
+              background: linear-gradient(57deg, #96deda, #50c9c3);
+                height: 600px;
+                width: 1400px;  
+                clip-path: polygon(100% 100%, 100% 80%, 70% 100%, 0% 100%);
+                z-index: -25;
+                opacity: 0.4;
+
+            }
+            h1.head{
+              position: absolute;
+              left: 500px;
+              color: #424242;
+
+            }
+
+
         </style>
 <script src="Tone.js"></script>
 
     </head>
     <body>
-
+<h1 class="head"> Virtual Piano</h1>
+<div class="shape1"></div>
+<div class="shape2"></div>
+<div class="shape3"></div>
 <div class="container" id="main">
     <ul class = "keyList" id="zero">
          <li class="keys white c"  id="C5"    onmousedown="playIt(event)">  c    </li>
@@ -96,18 +141,22 @@
          <li class="keys white g"  id="G6"    onmousedown="playIt(event)">  G    </li>
          <li class="keys black gs" id="G#6"   onmousedown="playIt(event)">  G#   </li>
          <li class="keys white a"  id="A6"    onmousedown="playIt(event)">  A    </li>
-         <li class="keys black as" id="A#6"   onmousedown="playIt(event)">  A#   </li>      
+         <li class="keys black as" id="A#6"   onmousedown="playIt(event)">  A#   </li>     
          <li class="keys white b"  id="B6"    onmousedown="playIt(event)">  B    </li>
          <li class="keys white c"  id="C7"    onmousedown="playIt(event)">  C    </li>
     </ul>
-   
+
 </div>
 
 <script>
 
-  var synth = new Tone.Synth().toMaster();
+var synth = new Tone.Synth().toMaster();
+
+
 function playIt() {
-   synth.triggerAttackRelease(event.target.id, "8n");
+
+   synth.triggerAttackRelease(event.target.id, "8n").connect();
+  
 }
 
 
