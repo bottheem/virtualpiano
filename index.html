@@ -106,19 +106,6 @@
               color: #424242;
 
             }
-            .synthChooser{
-              position: relative;
-              top: 90px;
-              left: 200px;
-              background-color: transparent;
-              border: none;
-              font-size: 22px;
-              
-            }
-            .synthChooser:active{
-              background-color: #D9D9D9;
-              outline-color: #8B8B8B;
-            }
 
 
         </style>
@@ -126,15 +113,28 @@
 
     </head>
     <body>
-<h1 class="head"> Virtual Piano</h1>
+<h1 class="head"> </h1>
 <div class="shape1"></div>
 <div class="shape2"></div>
 <div class="shape3"></div>
 <div class="btn">
-  <button class="synthChooser" id="defaultsynth" onclick="switchSynth()"> Default  </button>
+<button class="synthChooser" id="defaultsynth" onclick="switchSynth()"> Default  </button>
 <button class="synthChooser"  id="FMsynth" onclick="switchSynth()"> FM  </button>
 <button class="synthChooser"  id="AMsynth" onclick="switchSynth()"> AM  </button>
+
+<div id="envelope">
+    <input type="range" id="attack"  min="0.001" max="5" value="0" step="0.001" > <span id="rangeShow"> </span> </input>
+    <input type="range" id="decay"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
+    <input type="range" id="sustain"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
+    <input type="range" id="release"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
 </div>
+<div id="oscillator">
+    <input type="range" id="harmonicity"  min="0.01" max="5" value="3.4" step="0.1" > 
+    <input type="range" id="modulationIndex"  min="0.001" max="5" value="0" step="0.001" >
+  
+</div>
+
+
 <div class="container" id="main">
     <ul class = "keyList" id="zero">
          <li class="keys white c"  id="C5"    onmousedown="playIt(event)">  c    </li>
@@ -168,7 +168,21 @@
 
 <script>
 
-var synth = new Tone.Synth().toMaster();
+var synth = new Tone.Synth({
+  oscillator: {
+    type: 'fmsquare',
+    modulationType: 'sawtooth',
+    modulationIndex: 3,
+    harmonicity: 3.4
+  },
+  envelope: {
+    attack: 0.001,
+    decay: 0.1,
+    sustain: 0.1,
+    release: 0.1
+  }
+  }).toMaster();
+
 function switchSynth(){
   if(event.target.id=='FMsynth'){
     synth = new Tone.FMSynth().toMaster();
@@ -181,9 +195,18 @@ function switchSynth(){
   }
 }
 function playIt() {
-   synth.triggerAttackRelease(event.target.id, "8n").connect();
+   synth.triggerAttackRelease(event.target.id, "8n");
 }
 
+document.querySelector("#envelope").addEventListener("input", doit);
+function doit(event){
+    synth.envelope[event.target.id] = event.target.value;
+}
+document.querySelector("#oscillator").addEventListener("input", doithat);
+function dothat(event){
+    synth.oscillator[event.target.id] = event.target.value;
+}
+synth.oscillator.harmonicity = 8;
 </script>
 
 </body>     
