@@ -1,213 +1,327 @@
 <html>
+
 <head>
 
-    <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
+  <meta name="viewport" content="width=device-width , initial-scale=1.2 ,  maximum-scale=1.0 , user-scalable=0">
+  <script src="Tone.js"></script>
+  <style>
+    body {
+      background-color: transparent;
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #EEEEEE;
 
-       <style>
-        
+    }
 
-            
-            body{
-                background-color: transparent;
-                margin: 0;
-                font-family: sans-serif;
-                background-color: #EEEEEE;
-            }
-            .container{
-                background-color: ;
-                position: relative;
-                top: 150px;
-                left: 120px;
-                height: 260px;
-                width: 1400px;  
-           
+    .container {
+      background-color: ;
+      position: absolute;
+      top: 200px;
+      left: 120px;
+      height: 260px;
+      width: 1400px;
 
-            }
-            li{
-                margin:0;
-                padding-top:40px;
-                list-style:none;
-                position: relative;
-                float: left;
-                text-align: center;
-                user-select: none;
-               
-            }
-            .white{
-                height:16em;
-                width:4em;
-                border-left:1px solid #bbb;
-                border-bottom:1px solid #bbb;
-                border-radius:0 0 5px 5px;
-                background-color: white;   
-                 box-shadow: 14px 0px 18px 2px grey;            
-            }
-            .white:active{
-                  border-top:1px solid #777;
-                  border-left:1px solid #999;
-                  border-bottom:1px solid #999;
-                  box-shadow:2px 0 3px rgba(0,0,0,0.1) inset,
-                            -5px 5px 20px rgba(0,0,0,0.2) inset,
-                             0 0 3px rgba(0,0,0,0.2),
-                             inset 4px 4px 2px -10px #000000;
-                  background:
-                  linear-gradient(to bottom,white 75%,#E3E3E3 100%);
-                  z-index:-4;
-            }
-            .black{
-                height:8em;
-                width:2em;
-                margin:0 0 0 0;
-                z-index:2;
-                border:1px solid #000;
-                border-radius:0 0 3px 3px;
-                box-shadow:-1px -1px 2px rgba(255,255,255,0.2) inset,0 -5px 2px 3px rgba(0,0,0,0.6) inset,0 2px 4px rgba(0,0,0,0.5);
-                background-color: black;
-                  color: white; 
-            }
-            
-            .d,.e,.g,.a,.b{
-                 margin:0 0 0 -1.11em;
-            }
-            .cs,.ds,.fs,.gs,.as{
-                 margin:0 0 0 -1em;
-            }
-            .shape1{
-              position: absolute;
-              background-image: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
-                height: 600px;
-                width: 1400px;  
-                clip-path: polygon(0% 50%, 100% 0%, 100% 25%, 0% 100%);
-                z-index: -25;
-                opacity: 0.4;
-            }
-            .shape2{
-              position: absolute;
-              background: linear-gradient(57deg, #ff758c, #ff7eb3);
-                height: 600px;
-                width: 1400px;  
-                clip-path: polygon(0% 0%, 35% 0%, 0% 25%, 0% 100%);
-                z-index: -25;
-                opacity: 0.4;
-            }
-            .shape3{
-              position: absolute;
-              background: linear-gradient(57deg, #96deda, #50c9c3);
-                height: 600px;
-                width: 1400px;  
-                clip-path: polygon(100% 100%, 100% 80%, 70% 100%, 0% 100%);
-                z-index: -25;
-                opacity: 0.4;
+    }
 
-            }
-            h1.head{
-              position: absolute;
-              left: 500px;
-              color: #424242;
+    li {
+      margin: 0;
+      padding-top: 40px;
+      list-style: none;
+      position: relative;
+      float: left;
+      text-align: center;
+      user-select: none;
 
-            }
+    }
+
+    .white {
+      height: 16em;
+      width: 4em;
+      border-left: 1px solid #bbb;
+      border-bottom: 1px solid #bbb;
+      border-radius: 0 0 5px 5px;
+      background-color: white;
+      box-shadow: 14px 0px 18px 2px grey;
+    }
+
+    .white:active {
+      border-top: 1px solid #777;
+      border-left: 1px solid #999;
+      border-bottom: 1px solid #999;
+      box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
+        -5px 5px 20px rgba(0, 0, 0, 0.2) inset,
+        0 0 3px rgba(0, 0, 0, 0.2),
+        inset 4px 4px 2px -10px #000000;
+      background:
+        linear-gradient(to bottom, white 75%, #E3E3E3 100%);
+      z-index: -4;
+    }
+
+    .black {
+      height: 8em;
+      width: 2em;
+      margin: 0 0 0 0;
+      z-index: 2;
+      border: 1px solid #000;
+      border-radius: 0 0 3px 3px;
+      box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+      background-color: black;
+      color: white;
+    }
+
+    .d,
+    .e,
+    .g,
+    .a,
+    .b {
+      margin: 0 0 0 -1.11em;
+    }
+
+    .cs,
+    .ds,
+    .fs,
+    .gs,
+    .as {
+      margin: 0 0 0 -1em;
+    }
+
+    .shape1 {
+      position: absolute;
+      background: linear-gradient(57deg, #9559F8, #00BBF6, #9559F8);
+      height: 600px;
+      width: 1400px;
+      clip-path: polygon(0% 0%, 35% 0%, 0% 25%, 0% 100%);
+      z-index: -25;
+      opacity: 1;
+    }
+
+    .shape2 {
+      position: absolute;
+      background-image: linear-gradient(to top, #9559F8, #F3506F);
+      height: 600px;
+      width: 1400px;
+      clip-path: polygon(0% 50%, 100% 0%, 100% 25%, 0% 100%);
+      z-index: -25;
+      opacity: 1;
+    }
+
+    .shape3 {
+      position: absolute;
+      background: linear-gradient(57deg, #9559F8, #00BBF6);
+      height: 600px;
+      width: 1400px;
+      clip-path: polygon(100% 100%, 100% 80%, 70% 100%, 0% 100%);
+      z-index: -25;
+      opacity: 1;
+
+    }
+
+    h1.head {
+      position: absolute;
+      left: 500px;
+      color: #424242;
+
+    }
+
+    .tab {
+      display: block;
+      position: relative;
+      left: 160px;
+      overflow: hidden;
+      border: 0px;
+      width: 975px;
+      height: 40px;
+      background-color: white;
+
+    }
+
+    .tabButton {
+      border: none;
+      outline: none;
+      margin: 0;
+      float: left;
+      height: inherit;
+      width: 100px;
+      background-color: white;
+      cursor: pointer;
+      padding: 14px 16px;
+
+    }
+
+    .tabButton:active {
+      background-color: #EDEDF0;
+    }
+
+    .tabButton:hover {
+      background-color: rgba(199, 199, 201,0.1);
+    }
+
+    .tabPages {
+      display: block;
+      position: absolute;
+      left: 160px;
+      overflow: hidden;
+      border: 0px;
+      width: 975px;
+      height: 170px;
+      background-color: rgb(255, 255, 255);
+      margin: 0;
+      z-index: 1;
+    }
+
+  </style>
 
 
-        </style>
-<script src="Tone.js"></script>
+</head>
 
-    </head>
-    <body>
-<h1 class="head"> </h1>
-<div class="shape1"></div>
-<div class="shape2"></div>
-<div class="shape3"></div>
-<div class="btn">
-<button class="synthChooser" id="defaultsynth" onclick="switchSynth()"> Default  </button>
-<button class="synthChooser"  id="FMsynth" onclick="switchSynth()"> FM  </button>
-<button class="synthChooser"  id="AMsynth" onclick="switchSynth()"> AM  </button>
+<body>
 
-<div id="envelope">
-    <input type="range" id="attack"  min="0.001" max="5" value="0" step="0.001" > <span id="rangeShow"> </span> </input>
-    <input type="range" id="decay"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
-    <input type="range" id="sustain"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
-    <input type="range" id="release"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
+  <h1 class="head"> </h1>
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+  <div class="shape3"></div>
+
+<div class="up">
+    <div class="tab">
+        <button class="tabButton" id="syn" onclick="openPage(event)">Synth</button>
+        <button class="tabButton" id="env" onclick="openPage(event)">Envelope</button>
+        <button class="tabButton" id="osc" onclick="openPage(event)">Oscillator</button>
+      </div>
+      <div class="tabPages">
+        <div class="tabPage">
+              <button class="synthChooser" id="defaultsynth" onclick="switchSynth(event)"> Default  </button>
+              <button class="synthChooser"  id="FMsynth" onclick="switchSynth(event)"> FM  </button>
+              <button class="synthChooser"  id="AMsynth" onclick="switchSynth(event)"> AM  </button>
+              <button class="synthChooser"  id="polySynth" onclick="switchSynth(event)"> Poly  </button>
+        </div>
+        <div class="tabPage" id="envelope">
+              <input type="range" id="attack"  min="0.001" max="5" value="0" step="0.001" > <span id="rangeShow"> </span> </input>
+              <input type="range" id="decay"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
+              <input type="range" id="sustain"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
+              <input type="range" id="release"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
+        </div>
+        <div class="tabPage">
+              <p>Blank yet </p>
+        </div>
+      </div>
 </div>
-<div id="oscillator">
-    <input type="range" id="harmonicity"  min="0.01" max="5" value="3.4" step="0.1" > 
-    <input type="range" id="modulationIndex"  min="0.001" max="5" value="0" step="0.001" >
-  
-</div>
-
-
-<div class="container" id="main">
-    <ul class = "keyList" id="zero">
-         <li class="keys white c"  id="C5"    onmousedown="playIt(event)">  c    </li>
-         <li class="keys black cs" id="C#5"   onmousedown="playIt(event)">  c#   </li>
-         <li class="keys white d"  id="D5"    onmousedown="playIt(event)">  D    </li>
-         <li class="keys black ds" id="D#5"   onmousedown="playIt(event)">  D#   </li>
-         <li class="keys white e"  id="E5"    onmousedown="playIt(event)">  E    </li>
-         <li class="keys white f"  id="F5"    onmousedown="playIt(event)">  F    </li>
-         <li class="keys black fs" id="F#5"   onmousedown="playIt(event)">  F#   </li>
-         <li class="keys white g"  id="G5"    onmousedown="playIt(event)">  G    </li>
-         <li class="keys black gs" id="G5"    onmousedown="playIt(event)">  G#   </li>
-         <li class="keys white a"  id="A5"    onmousedown="playIt(event)">  A    </li>
-         <li class="keys black as" id="A#5"   onmousedown="playIt(event)">  A#   </li>
-         <li class="keys white b"  id="B5"    onmousedown="playIt(event)">  B    </li>
-         <li class="keys white c"  id="C6"    onmousedown="playIt(event)">  C    </li>
-         <li class="keys black cs" id="C#6"   onmousedown="playIt(event)">  C#   </li>
-         <li class="keys white d"  id="D6"    onmousedown="playIt(event)">  D    </li>
-         <li class="keys black ds" id="D#6"   onmousedown="playIt(event)">  D#   </li>
-         <li class="keys white e"  id="E6"    onmousedown="playIt(event)">  E    </li>
-         <li class="keys white f"  id="F6"    onmousedown="playIt(event)">  F    </li>
-         <li class="keys black fs" id="F#6"   onmousedown="playIt(event)">  F#   </li>
-         <li class="keys white g"  id="G6"    onmousedown="playIt(event)">  G    </li>
-         <li class="keys black gs" id="G#6"   onmousedown="playIt(event)">  G#   </li>
-         <li class="keys white a"  id="A6"    onmousedown="playIt(event)">  A    </li>
-         <li class="keys black as" id="A#6"   onmousedown="playIt(event)">  A#   </li>     
-         <li class="keys white b"  id="B6"    onmousedown="playIt(event)">  B    </li>
-         <li class="keys white c"  id="C7"    onmousedown="playIt(event)">  C    </li>
+ 
+  <div class="container" id="main">
+    <ul class="keyList" id="zero">
+      <li class="keys white c" id="C5" onmousedown="playIt(event)"> c </li>
+      <li class="keys black cs" id="C#5" onmousedown="playIt(event)"> c# </li>
+      <li class="keys white d" id="D5" onmousedown="playIt(event)"> D </li>
+      <li class="keys black ds" id="D#5" onmousedown="playIt(event)"> D# </li>
+      <li class="keys white e" id="E5" onmousedown="playIt(event)"> E </li>
+      <li class="keys white f" id="F5" onmousedown="playIt(event)"> F </li>
+      <li class="keys black fs" id="F#5" onmousedown="playIt(event)"> F# </li>
+      <li class="keys white g" id="G5" onmousedown="playIt(event)"> G </li>
+      <li class="keys black gs" id="G5" onmousedown="playIt(event)"> G# </li>
+      <li class="keys white a" id="A5" onmousedown="playIt(event)"> A </li>
+      <li class="keys black as" id="A#5" onmousedown="playIt(event)"> A# </li>
+      <li class="keys white b" id="B5" onmousedown="playIt(event)"> B </li>
+      <li class="keys white c" id="C6" onmousedown="playIt(event)"> C </li>
+      <li class="keys black cs" id="C#6" onmousedown="playIt(event)"> C# </li>
+      <li class="keys white d" id="D6" onmousedown="playIt(event)"> D </li>
+      <li class="keys black ds" id="D#6" onmousedown="playIt(event)"> D# </li>
+      <li class="keys white e" id="E6" onmousedown="playIt(event)"> E </li>
+      <li class="keys white f" id="F6" onmousedown="playIt(event)"> F </li>
+      <li class="keys black fs" id="F#6" onmousedown="playIt(event)"> F# </li>
+      <li class="keys white g" id="G6" onmousedown="playIt(event)"> G </li>
+      <li class="keys black gs" id="G#6" onmousedown="playIt(event)"> G# </li>
+      <li class="keys white a" id="A6" onmousedown="playIt(event)"> A </li>
+      <li class="keys black as" id="A#6" onmousedown="playIt(event)"> A# </li>
+      <li class="keys white b" id="B6" onmousedown="playIt(event)"> B </li>
+      <li class="keys white c" id="C7" onmousedown="playIt(event)"> C </li>
     </ul>
 
-</div>
+  </div>
 
-<script>
+  <script>
 
-var synth = new Tone.Synth({
-  oscillator: {
-    type: 'fmsquare',
-    modulationType: 'sawtooth',
-    modulationIndex: 3,
-    harmonicity: 3.4
-  },
-  envelope: {
-    attack: 0.001,
-    decay: 0.1,
-    sustain: 0.1,
-    release: 0.1
-  }
-  }).toMaster();
+    var synth = new Tone.Synth().toMaster();
+    var Nsynth = new Tone.Synth({
+      oscillator: {
+        type: 'fmsquare',
+        modulationType: 'sawtooth',
+        modulationIndex: 3,
+        harmonicity: 3.4
+      },
+      envelope: {
+        attack: 0.001,
+        decay: 0.1,
+        sustain: 0.1,
+        release: 0.1
+      }
+    }).toMaster();
+    
+    var Psynth = new Tone.PolySynth(6, Tone.Synth, {
+        oscillator : {
+		          type : "square"
+	      }
+        }).toMaster();
+        Psynth.set("detune", -1200);
+       // synth.triggerAttackRelease(["C4", "E4", "A4"], "4n");
 
-function switchSynth(){
-  if(event.target.id=='FMsynth'){
-    synth = new Tone.FMSynth().toMaster();
-  }
-  else if(event.target.id=='AMsynth'){
-    synth = new Tone.AMSynth().toMaster();
-  }
-  else{
-    synth = new Tone.Synth().toMaster();
-  }
-}
-function playIt() {
-   synth.triggerAttackRelease(event.target.id, "8n");
-}
+    function switchSynth() {
+      if (event.target.id == 'FMsynth') {
+        synth = new Tone.FMSynth().toMaster();
+      }
+      else if (event.target.id == 'AMsynth') {
+        synth = new Tone.AMSynth().toMaster();
+      }
+      else if(event.target.id == 'polySynth'){
+        synth = Psynth;
+      }
+      else {
+        synth = new Tone.Synth().toMaster();
+      }
+    }
+    var keys = document.querySelectorAll(".keys");
+ 
+    function playIt() {
+    
+      if(synth != Psynth){
+        synth.triggerAttackRelease(event.target.id, "8n");
+      }
+      else{
 
-document.querySelector("#envelope").addEventListener("input", doit);
-function doit(event){
-    synth.envelope[event.target.id] = event.target.value;
-}
-document.querySelector("#oscillator").addEventListener("input", doithat);
-function dothat(event){
-    synth.oscillator[event.target.id] = event.target.value;
-}
-synth.oscillator.harmonicity = 8;
-</script>
+        synth.triggerAttackRelease(["C4", "E4", "A4"], "4n");
+      }
+    }
 
-</body>     
+    document.querySelector("#envelope").addEventListener("input", doit);
+    function doit(event) {
+      synth.envelope[event.target.id] = event.target.value;
+    }
+    document.querySelector("#oscillator").addEventListener("input", doithat);
+    function dothat(event) {
+   //   synth.oscillator[event.target.id] = event.target.value;
+    }
+//synth.oscillator.harmonicity = 8;
+  </script>
+ <script>
+
+    var button = document.querySelectorAll(".tabButton");
+    var page = document.querySelectorAll(".tabPage");
+
+    for (let i = 0; i < page.length; i++) {
+      page[i].style.display = "none";
+    }
+
+    document.querySelector(".tabButton").click();
+    function openPage(event) {
+        for (let i = 0; i < page.length; i++) {
+          if (event.target.id == button[i].id) {
+            page[i].style.display = "block";
+          }
+         else {
+          page[i].style.display = "none";
+          }
+      }
+    }
+
+  </script>
+</body>
+
 </html>
