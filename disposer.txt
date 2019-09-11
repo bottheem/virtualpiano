@@ -1,0 +1,57 @@
+package disposer;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Disposer extends Frame implements ActionListener {
+Button go ;
+    Disposer(){
+        go = new Button("GO!");
+        setVisible(true);
+        setLayout(new FlowLayout());
+        setSize(1000,800);  
+        go.addActionListener(this);
+        add(go);
+        
+    }
+    public void actionPerformed(ActionEvent e){
+        dispose();
+        new Nxt();
+    }
+    
+
+   
+    public static void main(String[] args) {
+        new Disposer();
+    }
+    
+}
+
+
+
+// new class in same project :)
+
+package disposer;
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class Nxt extends Frame{
+    Label l;
+    Nxt(){
+        Button x = new Button("X");
+        l = new Label("got it!");
+        setVisible(true);
+        setLayout(new FlowLayout());
+        setSize(1000,800);  
+        x.setBounds(30,30,40,40);
+        x.addActionListener(new ActionListener(){
+           public void actionPerformed(ActionEvent e){
+               dispose();
+           } 
+        });
+        add(x);
+        add(l);
+    }
+    
+}
