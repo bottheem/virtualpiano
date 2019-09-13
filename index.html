@@ -168,6 +168,33 @@
       margin: 0;
       z-index: 1;
     }
+    .synthChooser, .oscType{
+      position: relative;
+      height: 12em;
+      width: 18em;
+      display: inline-block;
+      background-color: #e7e7e7; /* Green */
+      border: none;
+      transition-duration: 0.4s;
+    }
+    #defaultsynth:hover {
+      background-color: #994CAF; /* Green */
+      color: white;
+    }
+    #FMsynth:hover {
+      background-color: #008CBA; /* Green */
+      color: white;
+    }
+    #AMsynth:hover {
+      background-color: #f44336; /* Green */
+      color: white;
+    }
+    #polySynth:hover {
+      background-color: #4CAF50; /* Green */
+      color: white;
+    }
+
+
 
   </style>
 
@@ -188,7 +215,7 @@
         <button class="tabButton" id="osc" onclick="openPage(event)">Oscillator</button>
       </div>
       <div class="tabPages">
-        <div class="tabPage">
+        <div class="tabPage" id="synthTab">
               <button class="synthChooser" id="defaultsynth" onclick="switchSynth(event)"> Default  </button>
               <button class="synthChooser"  id="FMsynth" onclick="switchSynth(event)"> FM  </button>
               <button class="synthChooser"  id="AMsynth" onclick="switchSynth(event)"> AM  </button>
@@ -200,10 +227,14 @@
               <input type="range" id="sustain"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
               <input type="range" id="release"  min="0.01" max="5" value="0" step="0.1" > <span id="rangeShow"> </span> </input>
         </div>
-        <div class="tabPage">
-              <p>Blank yet </p>
+        <div class="tabPage" id="oscTab">
+              <button class="oscType" onclick="switchOSC(event)" id="sine" > Sine      </button>
+              <button class="oscType" onclick="switchOSC(event)" id="square" > Square    </button>
+              <button class="oscType" onclick="switchOSC(event)" id="triangle" > triangle  </button>
+              <button class="oscType" onclick="switchOSC(event)" id="none" > none      </button>
         </div>
       </div>
+
 </div>
  
   <div class="container" id="main">
@@ -261,7 +292,11 @@
     });
 </script>
   <script>
-    var synth = new Tone.Synth().toMaster();
+
+    synth = new Tone.Synth();
+    synth.oscillator.type = "square";
+    synth.toMaster();
+
     var Nsynth = new Tone.Synth({
       oscillator: {
         type: 'fmsquare',
@@ -284,7 +319,9 @@
         }).toMaster();
         Psynth.set("detune", -1200);
        // synth.triggerAttackRelease(["C4", "E4", "A4"], "4n");
-
+    function switchOSC(e){
+           synth.oscillator.type = event.target.id;
+    }
     function switchSynth() {
       if (event.target.id == 'FMsynth') {
         synth = new Tone.FMSynth().toMaster();
@@ -319,7 +356,8 @@
     function dothat(event) {
    //   synth.oscillator[event.target.id] = event.target.value;
     }
-//synth.oscillator.harmonicity = 8;
+
+
   </script>
  <script>
 
