@@ -236,9 +236,31 @@
     </ul>
 
   </div>
+<script type="text/javascript">
+  // for keyboard triggering
+   var keyNote = {
+        a:'c5',
+        s:'d5',
+        d:'e5',
+        f:'f5',
+        g:'g5',
+        h:'a5',
+        j:'b5',
+        w:'c#5',
+        e:'d#5',
+        t:'f#5',
+        y:'g#5',
+        u:'a#5',
 
+      }
+    document.addEventListener('keydown',(e)=>{
+      synth.triggerAttack(keyNote[e.key], "8n");
+    });
+    document.addEventListener('keyup',(e)=>{
+      synth.triggerRelease();
+    });
+</script>
   <script>
-
     var synth = new Tone.Synth().toMaster();
     var Nsynth = new Tone.Synth({
       oscillator: {
@@ -278,14 +300,13 @@
       }
     }
     var keys = document.querySelectorAll(".keys");
- 
+   
+
     function playIt() {
-    
       if(synth != Psynth){
         synth.triggerAttackRelease(event.target.id, "8n");
       }
       else{
-
         synth.triggerAttackRelease(["C4", "E4", "A4"], "4n");
       }
     }
@@ -320,7 +341,9 @@
           }
       }
     }
-
+setTimeout( function(){ 
+    document.getElementById("C5").click();
+  }, 1000);
   </script>
 </body>
 
